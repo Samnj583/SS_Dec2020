@@ -33,7 +33,7 @@ public class GuessTest {
 			if(userGuessInt > 100 || userGuessInt < 0) {				//Remind user of parameters
 				System.out.println("Remember it is between 1 and 100. Try again");
 			}
-			if((ans+10) >= userGuessInt && userGuessInt >= (ans-10)) {	//Check for correct answer
+			else if((ans+10) >= userGuessInt && userGuessInt >= (ans-10)) {	//Check for correct answer
 				System.out.println("Good, the answer is "+ans);
 				break;
 			}
