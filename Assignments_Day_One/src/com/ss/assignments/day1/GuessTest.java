@@ -22,24 +22,24 @@ public class GuessTest {
 		int userGuessInt;
 		
 		while(guesses > 0) {
-			String userGuessStr = scan.nextLine();
-			try {
+			String userGuessStr = scan.nextLine();						//Read user input
+			try {														//Catch any error if parseInt fails
 			userGuessInt = Integer.parseInt(userGuessStr);
 			}
 			catch(Exception e){
 				System.out.println("Integers only");
 				continue;
 			}
-			if(userGuessInt > 100 || userGuessInt < 0) {
+			if(userGuessInt > 100 || userGuessInt < 0) {				//Remind user of parameters
 				System.out.println("Remember it is between 1 and 100. Try again");
 			}
-			if((ans+10) >= userGuessInt && userGuessInt >= (ans-10)) {
+			if((ans+10) >= userGuessInt && userGuessInt >= (ans-10)) {	//Check for correct answer
 				System.out.println("Good, the answer is "+ans);
 				break;
 			}
 			else {
 				guesses--;
-				if(guesses == 0) {
+				if(guesses == 0) {										//Check if user has guesses left
 					System.out.println("Sorry the answer is "+ans);
 					break;
 				}
