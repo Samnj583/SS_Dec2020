@@ -1,0 +1,16 @@
+1. Which Class would you use to store your birthday in years?
+You would use LocalDate class to store your birthday in years.
+
+2. Given a random date, how would you find the date of the previous Thursday?
+Using LocalDate, you can get the calendar date for the desired year, month, and date,
+and to find out the day of the week it is and subtract the needed amount to get the 
+previous Thursday.
+
+3. What is the difference between a ZoneId and a ZoneOffset?
+ZoneId is a time-zone ID and ZoneOffset is an offset amount from UTC.
+
+4. How would you convert an instant to a ZonedDateTime? How would you convert a 
+ZonedDateTime to an Instant?
+ZoneDateTime [variable name] = instant.atZone(ZoneId.of([string of desired id]));
+
+use plusMinutes() and plusSeconds() to change ZonedDateTime to an instant
