@@ -19,4 +19,10 @@ public class UtopiaController {
 		return utopiaService.getFlightById(flightId);
 	}
 	
+	
+	//Test to see if spring boot is running partially
+	@RequestMapping("/hello")
+	public String hello() {
+		return "Hello World";
+	}
 }
