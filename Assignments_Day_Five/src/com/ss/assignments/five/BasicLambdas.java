@@ -4,6 +4,8 @@
 package com.ss.assignments.five;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -13,37 +15,53 @@ import java.util.stream.Collectors;
  *
  */
 public class BasicLambdas {
-	private static List<String> unSorted = new ArrayList<>();
+	private static List<String> unsorted = new ArrayList<>();
+	private static String[] unsortedList = new String[9];
 
-	public void BasicLambdas() {
-		unSorted.add("Accidentally");
-		unSorted.add("Recently");
-		unSorted.add("Urgently");
-		unSorted.add("Probably");
-		unSorted.add("Dastardly");
-		unSorted.add("Suddenly");
-		unSorted.add("Justly");
-		unSorted.add("Extremely");
-		unSorted.add("Totally");
+	public BasicLambdas() {
+		unsorted.add("Accidentally");
+		unsorted.add("Recently");
+		unsorted.add("Urgently");
+		unsorted.add("Probably");
+		unsorted.add("Dastardly");
+		unsorted.add("Suddenly");
+		unsorted.add("Justly");
+		unsorted.add("Extremely");
+		unsorted.add("Totally");
 		
-		unSorted.forEach(s -> System.out.println(s));
-		
+		unsortedList[0] = "Accidentally";
+		unsortedList[1] = "Recently";
+		unsortedList[2] = "Urgently";
+		unsortedList[3] = "Probably";
+		unsortedList[4] = "Dastardly";
+		unsortedList[5] = "Suddenly";
+		unsortedList[6] = "Justly";
+		unsortedList[7] = "Extremely";
+		unsortedList[8] = "Totally";
+
 	}
 	
 	public void sortByLength() {
-		unSorted.sort((s1, s2) -> s1.length()-s2.length());
+		unsorted.sort((s1, s2) -> s1.length()-s2.length());
 	}
 	
 	public void reverseSortByLength() {
-		unSorted.sort((s1, s2) -> s2.length()-s1.length());
+		unsorted.sort((s1, s2) -> s2.length()-s1.length());
 	}
 
 	public void byLetterE() {
-//		unSorted.sort((s1, s2) -> ((s1.contains("e") && !s2.contains("e")) || (s1.contains("e") && !s1.contains("e")) ? 0 : 1));
+		Arrays.sort(unsortedList, Comparator.comparingInt(s -> (s.contains("E") || s.contains("e") ? 0: 1)));
 	}
 	
 	public void byLetterERedone() {
-		
+		Arrays.sort(unsortedList, (s1, s2) -> letterBasedSort(s1, s2));
+	}
+	
+	public static int letterBasedSort(String s1, String s2) {
+		if((s2.contains("E") || s2.contains("e")) && !(s1.contains("E") || s1.contains("e"))) {
+			return 0;
+		}
+		return 1;
 	}
 	
 	public void addEvenOrOdd() {
@@ -79,4 +97,15 @@ public class BasicLambdas {
 		return words.stream().filter(s -> s.startsWith("a")).filter(s -> s.length() == 3)
 				.collect(Collectors.toList());
 	}
+	
+	public void printStringArrayList() {
+		unsorted.forEach(s -> System.out.println(s));
+	}
+	
+	public void printStringArray() {
+		for(String s: unsortedList) {
+			System.out.println(s);
+		}
+	}
+
 }
