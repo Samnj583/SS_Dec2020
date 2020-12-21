@@ -28,7 +28,10 @@ public class AuthorDao {
 			String query = "INSERT INTO `library`.`tbl_author` (`authorId`, `authorName`) VALUES ('"+ id +"', 'Fitzgerald');";
 
 			statement.executeUpdate(query);
-
+//			ResultSet rs = executeQuery("SELECT * from tbl_author");
+//			if(rs.next()){
+//				System.out.println(rs.blah)
+//			}
 
 		}
 		catch(SQLException e) {
