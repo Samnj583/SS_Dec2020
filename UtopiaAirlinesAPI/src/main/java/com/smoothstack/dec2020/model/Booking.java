@@ -6,26 +6,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "tbl_booking")
+@XmlRootElement
 public class Booking {
 	
 	@Id
-	@Column(name = "BOOKINGID")
+	@Column(name = "bookingid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bookingId;
 	
-	@Column(name = "FLIGHTID")
+	@Column(name = "flightid")
 	private int flightId;
 	
-	@Column(name = "ISACTIVE")
+	@Column(name = "isactive")
 	private int isActive;
 	
-	@Column(name = "STRIPEID")
+	@Column(name = "stripeid")
 	private String stripeId;
 	
-	@Column(name = "BOOKERID")
+	@Column(name = "bookerid")
 	private int bookerId;
 	
 	public Booking() {}

@@ -7,10 +7,12 @@ package com.smoothstack.dec2020.dao;
 //import java.sql.Statement;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.smoothstack.dec2020.model.Booking;
 
+@Repository
 @Component
 public interface BookingRepository extends JpaRepository<Booking, Integer>{
 

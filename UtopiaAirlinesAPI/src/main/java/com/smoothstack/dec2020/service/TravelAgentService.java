@@ -1,13 +1,10 @@
 package com.smoothstack.dec2020.service;
 
-import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
-import javax.ws.rs.Produces;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -18,7 +15,6 @@ import com.smoothstack.dec2020.dao.FlightRepository;
 import com.smoothstack.dec2020.model.Airport;
 import com.smoothstack.dec2020.model.Booking;
 import com.smoothstack.dec2020.model.Flight;
-import antlr.collections.List;
 
 @Component
 public class TravelAgentService {
@@ -70,13 +66,11 @@ public class TravelAgentService {
 	
 	public ResponseEntity<java.util.List<Booking>> getAllBookingsForFlight(int flightId) {
 		try {
-			Flight flight = flightRepository.getOne(flightId);
 			java.util.List<Booking> bookings = bookingRepository.findAll();
 			for(Booking b: bookings) {
-//				if(b.getFlightId() != flightId) {
-//					bookings.remove(b);
-//				}
-				//need to implement a function to get rid of bookings not of flightId
+				if(b.getFlightId() != flightId) {
+					bookings.remove(b);
+				}
 			}
 			return new ResponseEntity<java.util.List<Booking>>(bookings, HttpStatus.OK);
 		}

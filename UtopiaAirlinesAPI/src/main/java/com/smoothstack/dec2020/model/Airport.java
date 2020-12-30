@@ -8,9 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "tbl_airport")
+@XmlRootElement
 public class Airport implements Serializable {
 	
 	/**
@@ -19,11 +21,11 @@ public class Airport implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "AIRPORTID")
+	@Column(name = "airportid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int airportId;
 	
-	@Column(name = "CITY")
+	@Column(name = "city")
 	private String city;
 	
 	public Airport() {}

@@ -2,6 +2,8 @@ package com.smoothstack.dec2020.controller;
 
 import java.time.LocalDateTime;
 
+import javax.ws.rs.core.MediaType;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +28,7 @@ public class TravelAgentController {
 //		return travelAgentService.getFilteredFlight(departingCity, arriveCity, departTime);
 //	}
 	
-	@RequestMapping(path = "/flights/{flightId}", method = RequestMethod.GET)
+	@RequestMapping(path = "/flights/{flightId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public ResponseEntity<Flight> getFlightById(@PathVariable int flightId) {
 		return travelAgentService.getFlightById(flightId);
 	}
@@ -36,12 +38,12 @@ public class TravelAgentController {
 		return travelAgentService.makeBookingByFlightId(flightId, booking);
 	}
 	
-	@RequestMapping(path = "/flights/{flightId}/bookings", method = RequestMethod.GET)
+	@RequestMapping(path = "/flights/{flightId}/bookings", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public ResponseEntity<java.util.List<Booking>> getAllBookingsForFlight(@PathVariable int flightId) {
 		return travelAgentService.getAllBookingsForFlight(flightId);
 	}
 	
-	@RequestMapping(path = "/booking/{bookingId}", method = RequestMethod.GET)
+	@RequestMapping(path = "/booking/{bookingId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public ResponseEntity<Booking> findBookingByBookingId(@PathVariable int bookingId) {
 		return travelAgentService.findBookingByBookingId(bookingId);
 	}
@@ -51,12 +53,12 @@ public class TravelAgentController {
 		return travelAgentService.cancelBooking(bookingId);
 	}
 	
-	@RequestMapping(path = "/airports", method = RequestMethod.GET)
+	@RequestMapping(path = "/airports", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public ResponseEntity<java.util.List<Airport>> getAirports() {
 		return travelAgentService.getAirports();
 	}
 	
-	@RequestMapping(path = "/airports/{airportId}", method = RequestMethod.GET)
+	@RequestMapping(path = "/airports/{airportId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public ResponseEntity<Airport> getAirportById(@PathVariable int airportId) {
 		return travelAgentService.getAirportById(airportId);
 	}

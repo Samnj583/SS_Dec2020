@@ -8,29 +8,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "tbl_flight")
+@XmlRootElement
 public class Flight {
 	
-	@Column(name = "DEPARTTIME")
+	@Column(name = "departtime")
 	private LocalDateTime departTime;
 	
 	@Id
-	@Column(name = "FLIGHTID")
+	@Column(name = "flightid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int flightId;
 	
-	@Column(name = "SEATSAVAILABLE")
+	@Column(name = "seatsavailable")
 	private int seatsAvailable;
 	
-	@Column(name = "PRICE")
+	@Column(name = "price")
 	private float price;
 	
-	@Column(name = "DEPARTCITYID")
+	@Column(name = "departcityid")
 	private int departCityId;
 	
-	@Column(name = "ARRIVECITYID")
+	@Column(name = "arrivecityid")
 	private int arriveCityId;
 	
 	public Flight() {}

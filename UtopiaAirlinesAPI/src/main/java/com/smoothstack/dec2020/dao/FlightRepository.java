@@ -9,9 +9,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //import java.sql.Statement;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.smoothstack.dec2020.model.Flight;
 
+@Repository
 @Component
 public interface FlightRepository extends JpaRepository<Flight, Integer> {
 
